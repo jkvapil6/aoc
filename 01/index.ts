@@ -8,7 +8,7 @@ const loadMeasurments = async () => {
   let res = null
   try {
     const data = await Deno.readTextFile('measurments.txt')
-    const splitted = data.split("\n")
+    const splitted = data.split(/\r?\n/)
     res = splitted.map(val => Number(val))
   } catch (err) {
     console.error(err)

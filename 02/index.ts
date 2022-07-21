@@ -13,7 +13,7 @@ const loadPositions = async () => {
   let res = null
   try {
     const data = await Deno.readTextFile('positions.txt')
-    const splitted = data.split("\n")
+    const splitted = data.split(/\r?\n/)
     const mapped = splitted.map(row => row.split(" "))
     const positions = mapped.map(item => { 
       return {
