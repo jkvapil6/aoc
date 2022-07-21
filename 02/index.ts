@@ -1,13 +1,13 @@
 
-type Positions = Array<{
+type Position = {
   action: string, 
   value: number
-}> | null
+}
 
 /**
  * Loads positions from file
  * 
- * @returns {Positions} positions 
+ * @returns {Array<Position>} positions 
  */
 const loadPositions = async () => {
   let res = null
@@ -31,10 +31,10 @@ const loadPositions = async () => {
 /**
  * Calculates final position from all positions
  * 
- * @param {Positions} positions 
+ * @param {Array<Position>} positions 
  * @returns {number} final position
  */
-const calculateFinalPosition = (positions: Positions) => {
+const calculateFinalPosition = (positions: Array<Position>) => {
   let depth = 0
   let distance = 0
   if (positions) {
@@ -46,7 +46,6 @@ const calculateFinalPosition = (positions: Positions) => {
       }
     }
   }
-
   return depth * distance
 }
 
